@@ -12,18 +12,7 @@ exports.post_admin_signup =[
     sanitizeBody("password").escape(),
     
     function(req,res,next){
-                 let Hash;
                  const errors = validationResult(req);
-                 bcrypt.hash(req.body.password,10,function(err,hash){
-                     if(err){
-                    console.log("hash error");
-                    next(err);
-                    }
-                    else{
-                      Hash = hash;
-                }
-                 });
-                
                  if(!errors.isEmpty()){
                     console.log('validation error');
                     res.status(400).json({message:"validation error"});
@@ -42,7 +31,7 @@ exports.post_admin_signup =[
                      else{
                        let admin =new Admin({
                             username:req.body.username,
-                            password:Hash
+                            password:bcrypt.hashSync(req.body.password,10)
                         });
                         console.log(admin);
                           admin.save(function(err){
