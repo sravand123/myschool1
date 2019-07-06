@@ -11,20 +11,20 @@ export class ClassFormComponent implements OnInit {
   public class_;
   public clicked;
   public errorMsg;
-  constructor(private formService : FormService , private router : Router) { }
+  constructor(private formService: FormService , private router: Router) { }
 
   ngOnInit() {
         this.class_ = new Class(1);
         this.errorMsg = false;
         this.clicked = false;
   }
-  onSubmit(){
+  onSubmit() {
     this.clicked = true;
     this.formService.submitClass(this.class_).subscribe(
       res => console.log('HTTP response', res),
       err => {this.clicked = false; this.errorMsg = true; } ,
-      () => {this.router.navigate(['classes']); }
-    )
+      () => {this.router.navigate(['index']); }
+    );
   }
 
 

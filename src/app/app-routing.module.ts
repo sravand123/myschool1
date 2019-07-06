@@ -1,3 +1,4 @@
+import { SubjectFormComponent } from './subject-form/subject-form.component';
 import { TestMarksResolverService } from './test-marks-resolver.service';
 import { TestMarksComponent } from './test-marks/test-marks.component';
 import { TestFormComponent } from './test-form/test-form.component';
@@ -29,7 +30,7 @@ const routes: Routes = [
   {path: 'students/create', resolve: {class_: ClassResolverService}, component: StudentFormComponent},
   {path: 'teachers/create', resolve: {class_: ClassResolverService, subject : SubjectResolverService}, component: TeacherFormComponent},
   {path: 'classes/create', component: ClassFormComponent},
-
+  {path: 'subjects/create', component: SubjectFormComponent},
   {path: 'teachers/update/:id', resolve: {class_: ClassResolverService, subject : SubjectResolverService,
     teacher : TeacherResolverService}, component: TeacherUpdateComponent},
   {path: 'students/update/:id', resolve: {class: ClassResolverService, student : StudentResolverService},

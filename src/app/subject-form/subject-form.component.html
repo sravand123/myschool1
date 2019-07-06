@@ -1,3 +1,19 @@
-<p>
-  subject-form works!
-</p>
+<div class='container'>
+<div class='row'>
+  <div class='col-lg-8'>
+      <form  method="post" #myForm = 'ngForm' (ngSubmit)='onSubmit()'>
+          <strong [class.d-none]='!errorMsg' class='text-danger'>Subject already exists</strong>
+        <div class='form-group'>
+          <label for="subject">Subject</label>
+          <input type="text" class='form-control' #Subject = 'ngModel' [class.is-invalid]='Subject.touched && Subject.invalid' name="subject" id="subject" placeholder="Enter Subject" [(ngModel)]='subject.subject'>
+          <small class="text-danger" [class.d-none]='Subject.valid || Subject.untouched'>Enter a subject </small>
+        </div>
+        <div class='form-group'>
+          <button class=' btn btn-primary' [disabled]='clicked || myForm.invalid'>Add subject<span [class.d-none]="!clicked" class="spinner-border spinner-border-sm text-light m-1" role="status">
+          </span></button>
+      </div>
+      </form>
+      
+  </div>
+</div>
+</div>

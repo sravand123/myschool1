@@ -17,6 +17,7 @@ export class FormService {
   private murl = 'api/marks/';
   private testUrl = 'api/test/create';
   private testMarksUrl = 'api/test/';
+  private subjectUrl = 'api/subject/create';
   private testStudents = 'api/student/test/';
 
   constructor(private Http: HttpClient , private auth: AuthenticationService, private router: Router) { }
@@ -29,8 +30,9 @@ export class FormService {
       this.router.navigate(['']);
     }
   }
+ 
 
-  submitTeacher(form) {
+submitTeacher(form) {
     if (this.auth.isLoggedIn()) {
       return this.Http.post<any>(this.turl + 'create', form,
         { headers: { Authorization: `Bearer ${this.auth.getToken()}` }}).pipe(catchError(this.errorHandler));
@@ -55,7 +57,15 @@ updateStudent(form, id) {
    this.router.navigate(['']);
  }
 }
+submitSubject(form) {
+  if (this.auth.isLoggedIn()) {
+    return this.Http.post<any>(this.subjectUrl, form,
+      { headers: { Authorization: `Bearer ${this.auth.getToken()}` }}).pipe(catchError(this.errorHandler));
+  } else {
+    this.router.navigate(['']);
 
+  }
+}
 submitClass(form) {
   if (this.auth.isLoggedIn()) {
     return this.Http.post<any>(this.curl + 'create', form,
