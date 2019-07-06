@@ -25,7 +25,7 @@ app.use(passport.initialize());
 
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/myschool-website/index.html'));
+    res.sendFile(path.join(__dirname, '/dist/myschool-website/index.html'));
   });
 
 
