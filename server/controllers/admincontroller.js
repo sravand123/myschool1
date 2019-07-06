@@ -12,7 +12,6 @@ exports.post_admin_signup =[
     sanitizeBody("password").escape(),
     
     function(req,res,next){
-                 let admin;
                  let Hash;
                  const errors = validationResult(req);
                  bcrypt.hash(req.body.password,10,function(err,hash){
@@ -41,14 +40,15 @@ exports.post_admin_signup =[
                         res.status(409).json({message:"user already exists"});
                     }
                      else{
-                        admin =new Admin({
+                       let admin =new Admin({
                             username:req.body.username,
                             password:Hash
                         });
+                        console.log(admin);
                           admin.save(function(err){
                               if(err){
                                   console.log('save error');
-                                  next(err);
+                                  res.status(500).json({message:'server error'});
                                 }
                               else{
                                   let token;
