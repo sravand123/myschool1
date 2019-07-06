@@ -1,0 +1,18 @@
+<form class="form-horizontal"  (ngSubmit)='onSubmit()' novalidate #myForm="ngForm" method="POST" role="form">
+    
+    <strong [class.d-none]='!errorMsg' class='text-danger'>Class already exists</strong>
+     <div class="form-group">
+       <label class="control-label col-sm-2" for="Class">Class:</label>
+       <div class="col-sm-10">
+         <input type="number" class="form-control" [class.is-invalid]='Class.touched && Class.invalid' id="Class" #Class="ngModel" placeholder="Enter class" name="Class" [(ngModel)]='class_.Class' required>
+         <small class="text-danger" [class.d-none]='Class.valid || Class.untouched'>class is required</small>
+       </div>
+     </div>
+     <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10">
+          <button  [disabled]="myForm.invalid  || clicked" type="submit" class="btn btn-primary">Add Class<span [class.d-none]="!clicked" class="spinner-border spinner-border-sm text-light m-1" role="status">
+              <span class="sr-only">Loading...</span>
+          </span></button>
+        </div>
+      </div>
+</form>

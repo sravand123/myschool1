@@ -1,0 +1,113 @@
+<mat-tab-group>
+    <mat-tab label="students" >  
+      <div class="container" style="padding: 20px;">
+          <mat-form-field>
+              <input matInput (keyup)="applyFilter1($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+              <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+          
+                  <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                    <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
+                  </ng-container>
+                
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element "><a href="students/{{element._id}}">{{element.name}}</a></td>
+                  </ng-container>
+                
+                  <ng-container matColumnDef="class">
+                    <th mat-header-cell *matHeaderCellDef> Class </th>
+                    <td mat-cell *matCellDef="let element"> {{element.class.class}} </td>
+                  </ng-container>
+                
+                  <ng-container matColumnDef="roll">
+                    <th mat-header-cell *matHeaderCellDef> Roll </th>
+                    <td mat-cell *matCellDef="let element"> {{element.roll}} </td>
+                  </ng-container>
+                
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+                </table>
+      </div>
+      <div  style="padding: 10px;">
+        <a href="students/create"><button class="btn btn-primary">Add student</button></a>
+      </div>
+       
+              
+     </mat-tab>
+    <mat-tab label="Teachers">
+      <div *ngIf="show" class="container" style="padding: 20px;">
+          <mat-form-field>
+              <input matInput (keyup)="applyFilter2($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element;let i = index"> {{i+1}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"><a href="teachers/{{element._id}}">{{element.name}}</a></td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="subject">
+                  <th mat-header-cell *matHeaderCellDef> subject </th>
+                  <td mat-cell *matCellDef="let element"> {{element.subject.subject}} </td>
+          </ng-container>
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> phone </th>
+            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns2;"></tr>
+        </table>
+      </div>
+      <div  *ngIf="show" style="padding: 10px;">
+          <a href="teachers/create"><button class="btn btn-primary">Add Teacher</button></a>
+     </div>
+     <div *ngIf="!show" style = "padding-top:15%;padding-left:35%;">
+        <i class="fas fa-spinner fa-pulse fa-6x"></i>
+     </div>
+
+       
+    </mat-tab>
+    <mat-tab label ="Classes">
+      <div *ngIf="show">
+          <ul class="list-group">
+              <li class="list-group-item" *ngFor='let item of classes'><a href="classes/{{item._id}}">{{item.class}}th class</a></li>
+          </ul>
+          <div  style="padding: 10px;">
+              <a href="classes/create"><button class="btn btn-primary">Add Class</button></a>
+         </div>
+      </div>  
+      <div *ngIf="!show" style = "padding-top:15%;padding-left:35%;">
+          <i class="fas fa-spinner fa-pulse fa-6x"></i>
+      </div>
+    </mat-tab>
+    <mat-tab label ="Subjects">
+      <div *ngIf="show">
+          <ul class="list-group">
+              <li class="list-group-item" *ngFor='let item of subjects'><a href="subjects/{{item._id}}">{{item.subject}}</a></li>
+           </ul>
+           <div  style="padding: 10px;">
+              <a href="subjects/create"><button class="btn btn-primary">Add subject</button></a>
+         </div>
+      </div>
+      <div *ngIf="!show" style = "padding-top:15%;padding-left:35%;">
+          <i class="fas fa-spinner fa-pulse fa-6x"></i>
+      </div>
+        
+    </mat-tab>
+    
+</mat-tab-group>
