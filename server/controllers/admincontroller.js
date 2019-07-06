@@ -12,18 +12,16 @@ exports.post_admin_signup =[
     sanitizeBody("password").escape(),
     
     function(req,res,next){
-                 const errors = validationResult(req);
                  let admin;
+                 let Hash;
+                 const errors = validationResult(req);
                  bcrypt.hash(req.body.password,10,function(err,hash){
                      if(err){
                     console.log("hash error");
                     next(err);
                     }
                     else{
-                     admin =new Admin({
-                        username:req.body.username,
-                        password:hash
-                    });
+                      Hash = hash;
                 }
                  });
                 
@@ -43,6 +41,10 @@ exports.post_admin_signup =[
                         res.status(409).json({message:"user already exists"});
                     }
                      else{
+                        admin =new Admin({
+                            username:req.body.username,
+                            password:Hash
+                        });
                           admin.save(function(err){
                               if(err){
                                   console.log('save error');

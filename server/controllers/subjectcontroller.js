@@ -68,9 +68,6 @@ exports.subject_information = function(req,res,next){
         if(err){
             res.status(500).json({message:"server error"});
         }
-        if(!results){
-            res.status(204).json({message:"No content found"});
-        }
         else{
             res.json(results);
         }
