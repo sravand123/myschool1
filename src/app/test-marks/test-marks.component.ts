@@ -43,18 +43,16 @@ export class TestMarksComponent implements OnInit {
       }}
   ];
     this.rowData = [];
-    console.log(this.Information);
     if (this.Information.length === 0) {
       this.Information = this.route.snapshot.data.marks.student;
-      console.log(this.Information);
       this.Information.forEach(element2 => {
-        this.rowData.push({test: this.id,name: element2._id,
+        this.rowData.push({test: this.id, name: element2._id,
           class: element2.class._id, Name: element2.name, Class: element2.class.class
           });
       });
     } else {
     this.Information.forEach(element => {
-        this.rowData.push({test: element.test,Name: element.name.name,
+        this.rowData.push({test: element.test, Name: element.name.name,
            Class: element.class.class, name: element.name._id, class: element.class._id,
           telugu: element.telugu, hindi: element.hindi, english: element.english, maths: element.maths,
           natural_science: element.natural_science, physics: element.physics, social: element.social});
@@ -63,11 +61,10 @@ export class TestMarksComponent implements OnInit {
 
   }
   onSubmit() {
-      this.clicked= true;
+      this.clicked = true;
       this.service.submitMarks(this.id, this.rowData).subscribe(
-        res => console.log('HTTP response', res),
         err => {this.clicked = false; this.errorMsg = true; } ,
-        () => { this.clicked = false;}
+        () => { this.clicked = false; }
       );
   }
 

@@ -31,12 +31,10 @@ let Test = require('../models/test');
                 });
             });
             cursor.on('close',function(){
-                console.log("closed");
                 res.status(200).json({message:"ok"});
             });
           }else{
             Marks.create(req.body,function(err,results){
-                console.log(results);
                 if(err){
                     res.status(500).json({message:"eror"});
                 }
@@ -52,11 +50,9 @@ let Test = require('../models/test');
  exports.get_marks = function(req,res,next){
      Marks.find({test:req.params.id}).populate("name").populate("class").exec(function(err,results){
           if(err){
-              console.log("find error");
               next(err);
           }
           if(results.length!==0){
-              console.log(results);
                res.status(200).json({marks:results,student:[]});
           }
           else{
@@ -70,7 +66,6 @@ let Test = require('../models/test');
                             next(err);
                         }
                         else{
-                            console.log(found);
                             res.json({student:found,marks:[]});
                         }
                     })
@@ -120,7 +115,6 @@ let Test = require('../models/test');
          });
      });
      cursor.on('close',function(){
-         console.log("closed");
          res.status(200).json({message:"ok"});
      });
 

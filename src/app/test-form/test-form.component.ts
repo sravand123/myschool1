@@ -31,7 +31,6 @@ validateClass(value) {
 }
 onSubmit() {
 this.clicked = true;
-console.log(this.test);
 this.formService.submitTest(this.test).subscribe(
   (data) => {this.router.navigateByUrl('tests/' + data._id);},
   (err) => {this.clicked = false; this.errorMsg = true; } ,

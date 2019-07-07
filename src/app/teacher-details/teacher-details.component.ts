@@ -16,7 +16,6 @@ export class TeacherDetailsComponent implements OnInit {
     this.teachers.forEach(element => {
           if (element._id === this.route.snapshot.params.id ) {
             this.teacher = element;
-            console.log(this.teacher);
           }
 
     });

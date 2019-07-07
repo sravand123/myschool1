@@ -17,7 +17,6 @@ exports.create_test = [
         });
         const errors  = validationResult(req);
         if(!errors.isEmpty()){
-            console.log(errors);
             res.status(400).json({message:'validation error'});
         }
         else{
@@ -26,7 +25,6 @@ exports.create_test = [
                     next(err);
                 }
                 if(found===[]){
-                    console.log(found);
                     res.status(409).json({message:'Test name already exists'});
                 }
                 else{
@@ -35,7 +33,6 @@ exports.create_test = [
                             next(err);
                         }
                         else{
-                            console.log(results);
                             res.status(200).json(results);
                         }
                     });

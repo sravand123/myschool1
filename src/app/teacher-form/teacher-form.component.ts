@@ -44,7 +44,6 @@ export class TeacherFormComponent implements OnInit {
   onSubmit() {
     this.clicked = true;
     this.formService.submitTeacher(this.teacher).subscribe(
-    res => console.log('HTTP response', res),
     err => {this.clicked = false; this.errorMsg = true; } ,
     () => {this.router.navigate(['index']); }
     );

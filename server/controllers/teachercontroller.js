@@ -37,7 +37,6 @@ exports.post_teacher =[
             email:req.body.email,
             phone:req.body.phone
         })
-        console.log(req.body.Class);
         if(!errors.isEmpty()){
             res.status(400).json({message:"validation Error"});
         }

@@ -21,7 +21,6 @@ export class ClassFormComponent implements OnInit {
   onSubmit() {
     this.clicked = true;
     this.formService.submitClass(this.class_).subscribe(
-      res => console.log('HTTP response', res),
       err => {this.clicked = false; this.errorMsg = true; } ,
       () => {this.router.navigate(['index']); }
     );

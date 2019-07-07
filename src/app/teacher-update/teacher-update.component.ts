@@ -49,7 +49,6 @@ export class TeacherUpdateComponent implements OnInit {
     this.teacher.email = this.selectedTeacher.email;
 
 
-    console.log(this.teacher);
   }
   validateClass(value) {
     if (value === 'default') {
@@ -60,9 +59,7 @@ export class TeacherUpdateComponent implements OnInit {
   }
   onSubmit() {
     this.clicked = true;
-    console.log(this.teacher);
     this.formService.updateTeacher(this.teacher, this.selectedId).subscribe(
-    res => console.log('HTTP response', res),
     err => {this.clicked = false; this.errorMsg = true; } ,
     () => {this.router.navigate(['teachers', this.selectedId]); }
     );

@@ -8,6 +8,8 @@ var Admin = require("./server/models/admin");
 var cors = require('cors');
 var api = require('./server/routes/api');
 var passport = require('passport');
+var compression = require('compression');
+var helmet = require('helmet');
 
 require('./server/models/mongodb');
 require('./server/config/passport');
@@ -19,9 +21,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
+app.use(helmet());
+app.use(compression());
 app.use(express.static(path.join(__dirname, '/dist/myschool-website')));
 app.use('/api',api);
 app.use(passport.initialize());
+
 
 
 app.get('*', (req, res) => {

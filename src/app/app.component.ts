@@ -14,7 +14,6 @@ export class AppComponent {
     private  router: Router
   ) {
     this.router.events.subscribe((event: Event) => {
-      console.log(event);
       this.loadingBarInterceptor(event);
     });
   }

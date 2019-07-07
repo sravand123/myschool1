@@ -52,7 +52,6 @@ exports.post_student = [
             else{
                 student.save(function(err){
                     if(err){
-                        console.log("save failed");
                         res.status(500).send("Server error");
                     }
                     else{
@@ -77,7 +76,6 @@ exports.list_student = function(req,res,next){
         }
 
        if(results){
-           console.log(results);
            res.status(200).json(results);
        }
     });
@@ -112,7 +110,6 @@ exports.student_update_post = [
         }
 
         )
-        console.log(student);
         if(!errors.isEmpty()){
             res.status(400).json({message:"validation error"});
 

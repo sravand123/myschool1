@@ -14,7 +14,6 @@ exports.post_admin_signup =[
     function(req,res,next){
                  const errors = validationResult(req);
                  if(!errors.isEmpty()){
-                    console.log('validation error');
                     res.status(400).json({message:"validation error"});
                  }
                  else{
@@ -22,7 +21,6 @@ exports.post_admin_signup =[
                  
                  Admin.findOne({username:req.body.username},function(err,found){
                      if(err){
-                         console.log('find error');
                          res.status(500).json({message:"Internal server error"});
                      }
                      if(found){
@@ -36,7 +34,6 @@ exports.post_admin_signup =[
                         console.log(admin);
                           admin.save(function(err){
                               if(err){
-                                  console.log('save error');
                                   res.status(500).json({message:'server error'});
                                 }
                               else{
@@ -60,12 +57,10 @@ exports.post_admin_login = [
     sanitizeBody("password").escape(),
 
     function(req,res,next){
-        console.log("entered");
         passport.authenticate('local', function(err, user, info) {
             let token ;
             if (err) { return next(err); }
             if (!user) { 
-                console.log(user);
                 res.status(401).json({message:"Invalid login"});
 
              }
