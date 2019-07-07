@@ -60,8 +60,8 @@ export class TeacherUpdateComponent implements OnInit {
   onSubmit() {
     this.clicked = true;
     this.formService.updateTeacher(this.teacher, this.selectedId).subscribe(
-    err => {this.clicked = false; this.errorMsg = true; } ,
-    () => {this.router.navigate(['teachers', this.selectedId]); }
+      () => {this.router.navigate(['teachers', this.selectedId]); },
+      err => {this.clicked = false; this.errorMsg = true; } ,
     );
 
   }

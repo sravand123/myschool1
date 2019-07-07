@@ -22,8 +22,8 @@ export class AdminSignupComponent implements OnInit {
 onSubmit(){
   this.clicked = true;
   this.formService.signupAdmin(this.admin).subscribe(
+    () => {this.router.navigate(['admin', 'login']); },
     err => {this.clicked = false; this.errorMsg = true; } ,
-    () => {this.router.navigate(['admin', 'login']); }
     );
 }
 

@@ -22,8 +22,8 @@ export class SubjectFormComponent implements OnInit {
   onSubmit() {
     this.clicked = true;
     this.service.submitSubject(this.subject).subscribe(
+      () => {this.router.navigate(['index']); },
       err => {this.clicked = false; this.errorMsg = true; } ,
-      () => {this.router.navigate(['index']); }
     );
   }
 

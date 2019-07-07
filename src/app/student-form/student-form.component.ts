@@ -36,8 +36,8 @@ export class StudentFormComponent implements OnInit {
   onSubmit() {
     this.clicked = true;
     this.formService.submitStudent(this.student).subscribe(
+    () => {this.router.navigate(['index']); },
     err => {this.clicked = false; this.errorMsg = true; } ,
-    () => {this.router.navigate(['index']); }
     );
 
 }

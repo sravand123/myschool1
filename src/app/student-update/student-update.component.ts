@@ -34,7 +34,6 @@ export class StudentUpdateComponent implements OnInit {
                 this.selectedStudent = user;
               }
             });
-            console.log(this.selectedStudent);
             this.student = new Student(this.selectedStudent.name, this.selectedStudent.class._id,
               this.selectedStudent.roll, this.selectedStudent.dob,
               this.selectedStudent.father_name, this.selectedStudent.mother_name, this.selectedStudent.aadhar);
@@ -48,11 +47,9 @@ export class StudentUpdateComponent implements OnInit {
   }
   onSubmit() {
     this.clicked = true;
-    console.log(this.student);
     this.formService.updateStudent(this.student, this.selectedId).subscribe(
-    res => console.log('HTTP response', res),
+    () => {this.router.navigate(['students', this.selectedId]); },
     err => {this.clicked = false; this.errorMsg = true; } ,
-    () => {this.router.navigate(['students', this.selectedId]); }
     );
 
 }

@@ -63,8 +63,8 @@ export class TestMarksComponent implements OnInit {
   onSubmit() {
       this.clicked = true;
       this.service.submitMarks(this.id, this.rowData).subscribe(
+        () => { this.clicked = false; },
         err => {this.clicked = false; this.errorMsg = true; } ,
-        () => { this.clicked = false; }
       );
   }
 
