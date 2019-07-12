@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
-import { FormService } from './student-form/form.service';
+import { FormService } from './students/student-form/form.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({

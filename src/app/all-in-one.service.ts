@@ -85,8 +85,6 @@ export class AllInOneService {
 
   get_Index_Details() {
     if (this.auth.isLoggedIn()) {
-    // const students = this.http.get<IStudent[]>(this.studentUrl,
-    //   { headers: { Authorization: `Bearer ${this.auth.getToken()}` }}).pipe(catchError(this.handleError));
     const classes = this.http.get<IClass[]>(this.classUrl,
       { headers: { Authorization: `Bearer ${this.auth.getToken()}` }}).pipe(catchError(this.handleError));
     const teachers = this.http.get<ITeacher[]>(this.teacherUrl,
