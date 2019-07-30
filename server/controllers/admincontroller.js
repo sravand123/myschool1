@@ -6,9 +6,9 @@ const {body,validationResult} =require("express-validator/check");
 const {sanitizeBody}  = require("express-validator/filter");
 
 exports.post_admin_signup =[ 
-    body("username","username required").isLength({min:8}).isString().trim(),
+    body("username","username required").isLength({min:4}).isString().trim(),
     sanitizeBody("username").escape(),
-    body("password","password required").isLength({min:8}).isString().trim(),
+    body("password","password required").isLength({min:6}).isString().trim(),
     sanitizeBody("password").escape(),
     
     function(req,res,next){

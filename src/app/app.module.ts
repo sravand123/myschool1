@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestMarksResolverService } from './test-marks-resolver.service';
 import { AuthenticationService } from './authentication.service';
-import { FormService } from './students/student-form/form.service';
+import { FormService } from '../students/student-form/form.service';
 import { ClassDetailsResolverService } from './class-details-resolver.service';
 import { TeacherResolverService } from './resolvers/teacher-resolver.service';
 import { SubjectResolverService } from './resolvers/subject-resolver.service';
@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -25,6 +26,7 @@ import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
   declarations: [
     AppComponent,
     NavbarComponent,
+    HomeComponent,
 
   ],
   imports: [
