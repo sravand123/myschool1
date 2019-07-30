@@ -1,45 +1,21 @@
-<div  class="container" style="padding-left: 15%;padding-top: 10%;text-align:center;" *ngIf="teacher">
-        <table class="table table-borderless">
-          <thead>
-            <tr>
-              <th colspan="3" >{{teacher.name.toUpperCase()}}</th>
-            </tr>
-          </thead>
-          <tbody>
-        <tr>
-              <td>NAME</td>
-              <td>{{teacher.name}}</td>
-        </tr>
-        <tr>
-              <td>CLASS</td>
+
+        <div class='container' style="padding-left: 20%;padding-top: 10%;" >
+            <mat-card class="example-card" style="width:60%;">
+                    <mat-card-content>
+                        <h6>Name : {{teacher.name}}</h6> 
+                        <h6>Classes : <a *ngFor='let cl of teacher.class'>{{cl.class}},</a>Classes </h6>
+                        <h6>Subject : {{teacher.subject.subject}}</h6>
+                        <h6>Mobile:{{teacher.phone}}</h6>
+                        <h6>Email:{{teacher.email}}</h6>
+                  
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <a href="teachers/update/{{teacher._id}}"><button mat-raised-button color="primary" >Update</button></a>
+                    </mat-card-actions>
+              </mat-card>
              
-              <td>
-                <a *ngFor="let cl of teacher.class">
-                    {{cl.class}}th
-                </a> Class
-                
-              </td>
-        </tr>
-        <tr>
-              <td>SUBJECT</td>
-                <td>{{teacher.subject.subject}}</td>
-        </tr>
-        <tr>
-              <td>PHONE</td>
-              <td>{{teacher.phone}}</td>
-        </tr>
-        <tr>
-              <td>EMAIL</td>
-              <td>{{teacher.email}}</td>
-        </tr>
-       
-            
-          </tbody>
-        </table>
-        <br>
-        
-        <a href="teachers/update/{{teacher._id}}"><button type="button" class="btn btn-primary">Update Details</button></a>
-        
         </div>
+        
+        
                
           

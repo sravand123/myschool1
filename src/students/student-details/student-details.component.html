@@ -1,25 +1,18 @@
-<mat-tab-group>
-  <mat-tab label='Details'>
-      <div class='container' style="padding-left: 20%;padding-top: 10%;" >
-          <mat-card class="example-card" style="width:80%;">
-                  <mat-card-content>
-                     <h6>Name : {{student.name}}</h6> 
-                     <h6>Class :{{student.class.class}}</h6>
-                     <h6>Roll : {{student.roll}}</h6>
-                     <h6>Father Name : {{student.father_name}}</h6>
-                     <h6>Mother Nmae : {{student.mother_name}}</h6>
-                     <h6>Date of Birth : {{student.dob | date:'mediumDate'}}</h6>
-                     <h6>Aadhar Number : {{student.aadhar}}</h6>
-                  </mat-card-content>
-                  <mat-card-actions>
-                    <a href="students/update/{{student._id}}"><button mat-raised-button color="primary" >Update</button></a>
-                  </mat-card-actions>
-                </mat-card>
+<div class='container' style="padding-left: 20%;padding-top: 10%;" >
+    <mat-card class="example-card" style="width:80%;">
+            <mat-card-content>
+                <h6>Name : {{student.name}}</h6> 
+                <h6>Class :{{student.class.class}}</h6>
+                <h6>Roll : {{student.roll}}</h6>
+                <h6>Father Name : {{student.father_name}}</h6>
+                <h6>Mother Nmae : {{student.mother_name}}</h6>
+                <h6>Date of Birth : {{student.dob | date:'mediumDate'}}</h6>
+                <h6>Aadhar Number : {{student.aadhar}}</h6>
+            </mat-card-content>
+            <mat-card-actions>
+              <a href="students/update/{{student._id}}"><button mat-raised-button color="primary" >Update</button></a>
+            </mat-card-actions>
+      </mat-card>
      
 </div>
-  </mat-tab>
-  <mat-tab label="Marks">
-   
-  </mat-tab>
 
-</mat-tab-group>
