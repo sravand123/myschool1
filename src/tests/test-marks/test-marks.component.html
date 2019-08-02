@@ -1,16 +1,18 @@
-        <ag-grid-angular #ag [class.d-none]='clicked'
-        style="width: 100%; height: 50%;" 
-        class="ag-theme-balham"
-        [rowData]="rowData" 
-        [columnDefs]="columnDefs"
-      
-        >
-      </ag-grid-angular>
-      <button class= 'btn btn-primary' [class.d-none]="clicked" [disabled]='clicked'  (click)="onSubmit()">submit<span [class.d-none]="!clicked" class="spinner-border spinner-border-sm text-light m-1" role="status">
-        <span class="sr-only">Loading...</span>
-      </span></button>
-
-<div [class.d-none]='!clicked' class='container' style ="padding-top: 15%;padding-left: 40%">
-    <i style='color: silver' class="fas fa-sync fa-10x fa-spin"></i>
+<ag-grid-angular #ag [class.d-none]='clicked'
+      style="width: 100%; height: 50%;" 
+      class="ag-theme-balham"
+      [rowData]="rowData" 
+      [columnDefs]="columnDefs"
+    
+      >
+</ag-grid-angular>
+<div style="padding-left: 40%;padding-top: 10px; ">
+  <button  class= 'btn btn-primary' [class.d-none]="clicked" [disabled]='clicked'  (click)="onSubmit()">submit</button>
 </div>
+<div style="height:90%;display: flex;justify-content: center;align-items: center;">
+    <div [class.d-none]='!clicked'>
+        <i style='color: silver' class="fas fa-sync fa-10x fa-spin"></i>
+    </div>
+</div>
+
 
